@@ -1,0 +1,16 @@
+{
+    "name": "u-ser/perpus-manual",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "MuadzBelajar",
+            "email": "muadzbelajar@gmail.com"
+        }
+    ],
+    "require": {}
+    
+}
