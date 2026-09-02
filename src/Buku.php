@@ -28,19 +28,15 @@ class Buku {
         string $penulis,
         int $tahun,
         int $stok
-) {
-    $stmt = $this->db->prepare(
-        "INSERT INTO buku (judul, penulis, tahun, stok) VALUES (:judul, :penulis, :tahun, :stok)"
-    );
-    $stmt->execute([
-        'judul' => $judul,
-        'penulis' => $penulis,
-        'tahun' => $tahun,
-        'stok' => $stok
-    ]);
-}
-
-
-
-
+    ) {
+        $stmt = $this->db->prepare(
+            "INSERT INTO buku (judul, penulis, tahun, stok) VALUES (:judul, :penulis, :tahun, :stok)"
+        );
+        return $stmt->execute([
+            'judul' => $judul,
+            'penulis' => $penulis,
+            'tahun' => $tahun,
+            'stok' => $stok
+        ]);
+    }
 }

@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     
     $berhasil = $buku->tambah($judul, $penulis, $tahun, $stok);
-
     if ($berhasil) {
             header("Location: index.php");
         exit;
@@ -48,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 <h1>Tambah Buku</h1>
 
-<!-- Menampilkan pesan error jika proses input gagal -->
+
 <?php if (isset($error)) : ?>
     <p style="color: red;"><?= $error; ?></p>
 <?php endif; ?>
