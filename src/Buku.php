@@ -39,4 +39,38 @@ class Buku {
             'stok' => $stok
         ]);
     }
+
+    public function ambilPerId(int $id) {
+        $stmt = $this->db->prepare(
+            "SELECT * FROM buku WHERE id = :id"
+        );
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function ubah(
+        int $id,
+        string $judul,
+        string $penulis,
+        int $tahun,
+        int $stok
+    ) {
+        $stmt = $this->db->prepare(
+            "UPDATE buku SET judul = :judul, penulis = :penulis, tahun = :tahun, stok = :stok WHERE id = :id"
+        );
+        return $stmt->execute([
+            'id' => $id,
+            'judul' => $judul,
+            'penulis' => $penulis,
+            'tahun' => $tahun,
+            'stok' => $stok
+        ]);
+    }
+
+    public function hapus(int $id) {
+        $stmt = $this->db->prepare(
+            "DELETE FROM buku WHERE id = :id"
+        );
+        return $stmt->execute(['id' => $id]);
+    }
 }

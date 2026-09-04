@@ -19,17 +19,16 @@ $bukuAndrea = $buku->bukuAndrea();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perpustakaan</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/numen111104/nide-ui-default@v1.0.0/css/default-ui.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap">
 </head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/numen111104/nide-ui-default@v1.0.0/css/default-ui.min.css">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap">
 <body>
-
 <h1>Perpustakaan</h1>
 
-<div style="margin-bottom: 25px;">
-    <a href="tambah.php" style="text-decoration: none; background-color: #007bff; color: white; padding: 6px 14px; border-radius: 6px; font-size: 16px; font-weight: bold;">Tambah Buku +</a>
-    <a href="anggota.php" style="text-decoration: none; background-color: #ffc107; color: #212529; padding: 6px 14px; border-radius: 6px; font-size: 16px; font-weight: bold; margin-left: 10px;">Manajemen Anggota </a>
+<div>
+    <a href="tambah.php">Tambah Buku +</a>
+    <a href="anggota.php">Manajemen Anggota</a>
 </div>
 
 <h2>Daftar Semua Buku</h2>
@@ -41,6 +40,7 @@ $bukuAndrea = $buku->bukuAndrea();
             <th>Penulis</th>
             <th>Tahun</th>
             <th>Stok</th>
+            <th>Aksi</th>
         </tr>
     </thead>
     <tbody>
@@ -52,6 +52,10 @@ $bukuAndrea = $buku->bukuAndrea();
                 <td><?= htmlspecialchars($b['penulis']); ?></td>
                 <td><?= htmlspecialchars($b['tahun']); ?></td>
                 <td><?= htmlspecialchars($b['stok']); ?></td>
+                <td>
+                    <a href="edit.php?id=<?= $b['id']; ?>">Edit</a>
+                    <a href="hapus.php?id=<?= $b['id']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data buku ini?');">Hapus</a>
+                </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
